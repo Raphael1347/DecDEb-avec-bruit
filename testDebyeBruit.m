@@ -40,7 +40,7 @@ Zbruit=bruit.*Z;
 % semilogx(w,Zbruit2,'x',w,Zinvamp);
 % legend('bruit','inv','model')
 
-Err2=(abs((Z-Zinv)./Zinv)).^2;
+Err2=sqrt(sum((Z(:)-Zinv(:)).^2)/numel(Z));
 figure(i)
 semilogx(w,Err2)
 
