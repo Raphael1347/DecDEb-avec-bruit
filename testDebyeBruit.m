@@ -20,10 +20,10 @@ fprintf('----------------------------\n')
 i=0;
 for sigma=0:0.01:0.1;
 i=i+1;
-bruit=1+normrnd(0,sigma,1,numel(Z));
+bruit = complex(normrnd(0,sigma,1,numel(Z)), normrnd(0,sigma,1,numel(Z)));
 
 % Zbruitamp=bruit.*abs(Z);
-Zbruit=bruit.*Z;
+Zbruit=bruit.+Z;
 
 
 [ mk(i,:),t,Zinv] = DecDebyeEtZinv( Zbruit,t,w,Zo );
